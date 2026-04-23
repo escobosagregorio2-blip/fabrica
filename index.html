@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GEO Calzados de Seguridad — Fabricante certificado IRAM 3610. Protección, tecnología y diseño en cada paso. La Calera, Córdoba." />
+  <meta name="theme-color" content="#0c0a08" />
+  <title>GEO Calzados · Seguridad Industrial · ECSE SRL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e8840c'/%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' font-family='sans-serif' font-size='28' fill='%230c0a08' font-weight='800'%3EGEO%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0a08;
+      --bg-alt: #111009;
+      --surface: #1a1610;
+      --surface-2: #241e15;
+      --surface-3: #2e2519;
+      --line: rgba(232,180,80,0.08);
+      --line-strong: rgba(232,180,80,0.18);
+      --text: #f2ece0;
+      --text-dim: #a89a80;
+      --text-dimmer: #6b5f4d;
+      --accent: #e8840c;
+      --accent-2: #f5a623;
+      --accent-3: #ff6b00;
+      --accent-hover: #f09520;
+      --accent-soft: rgba(232,132,12,0.12);
+      --accent-glow: rgba(232,132,12,0.4);
+      --steel: #8a9bae;
+      --steel-soft: rgba(138,155,174,0.1);
+      --danger: #e74c3c;
+      --success: #2ecc71;
+      --radius-sm: 8px;
+      --radius: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --container: 1380px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+      --ease-out: cubic-bezier(.16,1,.3,1);
+      --ease-bounce: cubic-bezier(.34,1.56,.64,1);
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+      cursor: none;
+    }
+    @media (hover: none), (max-width: 980px) { body { cursor: auto; } }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; transition: color .3s var(--ease); }
+    button { font-family: inherit; border: none; background: none; cursor: none; color: inherit; }
+    @media (hover: none), (max-width: 980px) { button { cursor: auto; } }
+    ul { list-style: none; }
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 36px; }
+
+    /* ═══════════ CUSTOM CURSOR ═══════════ */
+    .cursor, .cursor-dot { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10000; mix-blend-mode: difference; }
+    .cursor { width: 40px; height: 40px; border: 1.5px solid #fff; border-radius: 50%; transform: translate(-50%, -50%); transition: width .3s var(--ease), height .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease); }
+    .cursor-dot { width: 5px; height: 5px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); }
+    .cursor.hover { width: 72px; height: 72px; border-color: var(--accent-2); background: rgba(232,132,12,0.15); }
+    .cursor.view { width: 100px; height: 100px; background: var(--accent); border-color: var(--accent); mix-blend-mode: normal; }
+    .cursor.view::after { content: 'VER'; position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.65rem; letter-spacing: 0.25em; font-weight: 700; color: #fff; font-family: 'DM Sans', sans-serif; }
+    @media (hover: none), (max-width: 980px) { .cursor, .cursor-dot { display: none; } }
+
+    /* ═══════════ SCROLL PROGRESS ═══════════ */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--accent-3), var(--accent), var(--accent-2)); z-index: 9999; box-shadow: 0 0 30px var(--accent-glow); }
+
+    /* ═══════════ LOADER ═══════════ */
+    .loader { position: fixed; inset: 0; z-index: 10001; background: var(--bg); display: grid; place-items: center; transition: opacity .8s var(--ease), visibility .8s; }
+    .loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-inner { text-align: center; }
+    .loader-logo { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 12vw, 7rem); color: var(--text); letter-spacing: 0.08em; position: relative; overflow: hidden; }
+    .loader-logo::before { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent-3), var(--accent-2)); animation: loaderBar 1.8s var(--ease) forwards; }
+    @keyframes loaderBar { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+    .loader-logo span { display: inline-block; animation: loaderLetter .6s var(--ease-out) both; }
+    @keyframes loaderLetter { 0% { transform: translateY(120%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    .loader-sub { font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--text-dim); margin-top: 12px; animation: fadeIn 1s .8s both; }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+    /* ═══════════ AMBIENT BG ═══════════ */
+    body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 20% 0%, rgba(232,132,12,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(245,166,35,0.05) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+    body > * { position: relative; z-index: 1; }
+
+    /* ═══════════ NOISE OVERLAY ═══════════ */
+    body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    /* ═══════════ TYPOGRAPHY ═══════════ */
+    .display { font-family: 'Bebas Neue', Impact, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; line-height: 0.92; font-weight: 400; }
+    h1.display { font-size: clamp(3.2rem, 10vw, 9rem); }
+    h2.display { font-size: clamp(2.6rem, 7vw, 5.5rem); }
+    h3.display { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .italic-serif { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -0.01em; }
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+    .lead { color: var(--text-dim); font-size: 1.08rem; max-width: 620px; }
+
+    /* ═══════════ NAV ═══════════ */
+    .nav-wrap { position: fixed; top: 20px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; padding: 0 20px; pointer-events: none; }
+    .nav { pointer-events: auto; width: 100%; max-width: 1280px; background: rgba(12,10,8,0.7); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px 10px 24px; display: flex; align-items: center; justify-content: space-between; transition: all .5s var(--ease); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+    .nav.scrolled { background: rgba(12,10,8,0.95); box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+    .logo { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 0.95rem; }
+    .logo-mark { height: 42px; filter: brightness(0) invert(1); transition: transform .5s var(--ease-bounce); }
+    .logo:hover .logo-mark { transform: scale(1.08); }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.12em; line-height: 1; }
+    .logo-text small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.55rem; letter-spacing: 0.25em; color: var(--text-dim); font-weight: 500; margin-top: 2px; }
+    .nav-links { display: flex; gap: 2px; align-items: center; }
+    .nav-links > li > a { display: inline-block; padding: 10px 16px; font-size: 0.82rem; color: var(--text-dim); border-radius: 999px; transition: all .3s var(--ease); font-weight: 500; letter-spacing: 0.03em; }
+    .nav-links > li > a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+    .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; font-size: 0.88rem; font-weight: 600; border-radius: 999px; transition: all .4s var(--ease); cursor: none; white-space: nowrap; border: 1px solid transparent; overflow: hidden; letter-spacing: 0.02em; }
+    @media (hover: none), (max-width: 980px) { .btn { cursor: auto; } }
+    .btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(255,255,255,0.15); transform: translate(-50%, -50%); transition: width .6s var(--ease), height .6s var(--ease); }
+    .btn:hover::before { width: 400px; height: 400px; }
+    .btn span { position: relative; z-index: 1; display: flex; align-items: center; gap: 10px; }
+    .btn-primary { background: var(--accent); color: #0c0a08; box-shadow: 0 8px 30px var(--accent-glow); font-weight: 700; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 16px 50px var(--accent-glow); }
+    .btn-ghost { background: transparent; color: var(--text); border-color: var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .btn-nav { padding: 11px 22px; font-size: 0.82rem; }
+    .btn-whatsapp { background: #25D366; color: #fff; box-shadow: 0 8px 30px rgba(37,211,102,0.35); }
+    .btn-whatsapp:hover { background: #1ea956; transform: translateY(-3px); }
+
+    .burger { display: none; width: 44px; height: 44px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+    .burger span { width: 18px; height: 1.5px; background: var(--text); transition: all .3s var(--ease); border-radius: 2px; }
+    .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ═══════════ HERO ═══════════ */
+    .hero { position: relative; min-height: 100vh; padding: 160px 0 100px; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: -1; }
+    .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(12,10,8,0.97) 0%, rgba(12,10,8,0.6) 40%, rgba(12,10,8,0.3) 70%, rgba(12,10,8,0.7) 100%); z-index: 1; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(12,10,8,0.9) 100%); z-index: 2; }
+    .hero-bg-img { position: absolute; inset: -8%; background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=80') center/cover; z-index: 0; will-change: transform; filter: saturate(0.4) brightness(0.7); }
+
+    .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center; width: 100%; position: relative; z-index: 3; }
+    .hero-content { max-width: 820px; }
+    .hero h1.display { margin: 18px 0 30px; }
+    .hero h1 .accent { color: var(--accent); }
+    .hero h1 .outline { -webkit-text-stroke: 2px var(--accent); color: transparent; }
+    .hero p.lead { font-size: 1.15rem; margin-bottom: 42px; max-width: 560px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+
+    .hero-badges { display: flex; gap: 32px; flex-wrap: wrap; }
+    .hero-badge { display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: var(--radius); transition: all .3s var(--ease); }
+    .hero-badge:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+    .hero-badge i { color: var(--accent); font-size: 1.1rem; }
+    .hero-badge .badge-text { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); font-weight: 500; }
+    .hero-badge strong { display: block; color: var(--text); font-size: 0.9rem; letter-spacing: 0; text-transform: none; }
+
+    .hero-visual { position: relative; }
+    .hero-product { position: relative; max-width: 520px; margin-left: auto; }
+    .hero-product img { width: 100%; filter: drop-shadow(0 40px 80px rgba(0,0,0,0.8)); transform: rotate(-8deg); transition: transform 1.2s var(--ease); }
+    .hero-product:hover img { transform: rotate(-4deg) scale(1.05); }
+    .hero-product .floating-tag { position: absolute; background: var(--surface-2); border: 1px solid var(--line-strong); padding: 12px 18px; border-radius: var(--radius); font-size: 0.78rem; color: var(--text); backdrop-filter: blur(10px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .floating-tag.tag-1 { top: 10%; right: -10%; animation: floatTag 4s ease-in-out infinite; }
+    .floating-tag.tag-2 { bottom: 25%; left: -5%; animation: floatTag 4s ease-in-out 1s infinite; }
+    .floating-tag.tag-3 { bottom: 5%; right: 5%; animation: floatTag 4s ease-in-out 2s infinite; }
+    .floating-tag i { color: var(--accent); margin-right: 6px; }
+    @keyframes floatTag { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    .scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--text-dimmer); display: flex; flex-direction: column; align-items: center; gap: 14px; z-index: 5; }
+    .scroll-hint .line { width: 1px; height: 50px; background: linear-gradient(180deg, transparent, var(--accent)); animation: scrollLine 2.5s ease infinite; }
+    @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+    /* ═══════════ MARQUEE ═══════════ */
+    .marquee { padding: 36px 0; background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
+    .marquee-track { display: inline-flex; animation: marqueeAnim 40s linear infinite; gap: 50px; align-items: center; }
+    .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 50px; }
+    .marquee-item .outline { -webkit-text-stroke: 1.5px var(--text); color: transparent; }
+    .marquee-item .accent { color: var(--accent); }
+    .marquee-item .sep { color: var(--accent); font-size: 0.35em; }
+    @keyframes marqueeAnim { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ═══════════ SECTIONS ═══════════ */
+    section { padding: 120px 0; position: relative; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 70px; flex-wrap: wrap; }
+    .section-head .title { max-width: 780px; }
+    .section-head h2 { margin-bottom: 16px; }
+
+    /* ═══════════ ABOUT / EMPRESA ═══════════ */
+    .about { overflow: hidden; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 100px; align-items: center; }
+    .about-media { position: relative; }
+    .about-media .main-img { position: relative; aspect-ratio: 4/5; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--line-strong); }
+    .about-media .main-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s var(--ease); }
+    .about-media:hover .main-img img { transform: scale(1.08); }
+    .about-media .cert-badge { position: absolute; top: 24px; left: 24px; background: var(--accent); color: #0c0a08; padding: 18px 24px; border-radius: var(--radius); box-shadow: 0 20px 50px var(--accent-glow); z-index: 3; text-align: center; }
+    .about-media .cert-badge strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; line-height: 1; }
+    .about-media .cert-badge small { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px; opacity: 0.8; }
+    .about-media .mini-card { position: absolute; bottom: -20px; right: -20px; background: var(--surface-2); border: 1px solid var(--line-strong); padding: 22px 28px; border-radius: var(--radius); box-shadow: 0 30px 70px rgba(0,0,0,0.6); z-index: 3; backdrop-filter: blur(20px); }
+    .about-media .mini-card .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--accent); line-height: 1; letter-spacing: 0.05em; }
+    .about-media .mini-card .stat-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px; }
+
+    .about-text h2 { margin-bottom: 28px; }
+    .about-text p { color: var(--text-dim); font-size: 1rem; margin-bottom: 18px; line-height: 1.8; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .stat strong { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--accent); line-height: 1; display: block; margin-bottom: 8px; letter-spacing: 0.05em; }
+    .stat small { color: var(--text-dim); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ═══════════ CATALOG ═══════════ */
+    .catalog { overflow: hidden; }
+    .catalog-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 50px; }
+    .filter-btn { padding: 12px 28px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--text-dim); transition: all .35s var(--ease); cursor: none; }
+    @media (hover: none), (max-width: 980px) { .filter-btn { cursor: auto; } }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #0c0a08; box-shadow: 0 8px 24px var(--accent-glow); }
+    .filter-btn .count { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,0.15); font-size: 0.65rem; margin-left: 8px; font-weight: 700; }
+    .filter-btn.active .count { background: rgba(0,0,0,0.2); }
+
+    .catalog-line-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-top: 60px; }
+    .catalog-line-header:first-of-type { margin-top: 0; }
+    .catalog-line-header img { height: 30px; filter: brightness(0) invert(1); }
+    .catalog-line-tag { padding: 5px 14px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 999px; }
+    .catalog-line-header p { color: var(--text-dim); font-size: 0.88rem; margin-left: auto; }
+
+    .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+    .product-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; transition: all .5s var(--ease); position: relative; }
+    .product-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 28px 70px rgba(232,132,12,0.12); }
+    .product-card-img { aspect-ratio: 1; overflow: hidden; position: relative; background: var(--surface-2); display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .product-card-img::before { content: ''; position: absolute; width: 70%; height: 70%; background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%); border-radius: 50%; }
+    .product-card-img img { position: relative; width: 85%; max-height: 85%; object-fit: contain; transition: transform .8s var(--ease); filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+    .product-card:hover .product-card-img img { transform: scale(1.08) rotate(-3deg); }
+    .product-card-img .card-badge { position: absolute; top: 16px; left: 16px; padding: 5px 12px; background: var(--accent); color: #0c0a08; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 999px; z-index: 2; }
+    .product-card-body { padding: 24px 24px 28px; }
+    .product-card-body .card-model { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .product-card-body .card-type { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+    .product-card-body .card-desc { color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; margin-bottom: 16px; }
+    .card-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+    .card-spec { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.05em; }
+    .card-spec i { color: var(--accent); font-size: 0.55rem; }
+    .card-sizes { font-size: 0.7rem; color: var(--text-dimmer); letter-spacing: 0.1em; }
+    .card-sizes strong { color: var(--text-dim); }
+    .product-card-cta { display: flex; padding: 0 24px 24px; }
+    .product-card-cta a { width: 100%; padding: 12px; text-align: center; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--line-strong); border-radius: var(--radius); color: var(--text-dim); transition: all .3s var(--ease); }
+    .product-card-cta a:hover { background: var(--accent); border-color: var(--accent); color: #0c0a08; }
+
+    /* ═══════════ PRODUCT MODAL ═══════════ */
+    .product-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(20px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 40px; overflow-y: auto; }
+    .product-modal.active { display: flex; }
+    .modal-content { background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-xl); max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; display: grid; grid-template-columns: 1fr 1fr; }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; z-index: 5; transition: all .3s var(--ease); font-size: 1rem; color: var(--text); }
+    .modal-close:hover { background: var(--accent); border-color: var(--accent); color: #0c0a08; }
+    .modal-img { padding: 40px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; position: relative; border-radius: var(--radius-xl) 0 0 var(--radius-xl); }
+    .modal-img::before { content: ''; position: absolute; width: 60%; height: 60%; background: radial-gradient(circle, var(--accent-soft), transparent 70%); border-radius: 50%; }
+    .modal-img img { position: relative; max-width: 100%; max-height: 400px; object-fit: contain; filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6)); }
+    .modal-info { padding: 40px; overflow-y: auto; }
+    .modal-info .product-model { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: transparent; -webkit-text-stroke: 1.5px var(--line-strong); letter-spacing: 0.1em; line-height: 0.9; margin-bottom: -8px; }
+    .modal-info .product-name { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .modal-info .product-type { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; font-weight: 600; }
+    .modal-info .product-desc { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.7; }
+    .modal-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+    .modal-spec { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-sm); font-size: 0.78rem; color: var(--text-dim); }
+    .modal-spec i { color: var(--accent); font-size: 0.75rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .modal-techs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px; }
+    .modal-tech { padding: 6px 12px; background: var(--accent-soft); border: 1px solid rgba(232,132,12,0.2); border-radius: 999px; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .modal-cta { display: flex; gap: 10px; }
+    .modal-cta .btn { flex: 1; padding: 12px 20px; font-size: 0.8rem; }
+
+    @media (max-width: 860px) {
+      .modal-content { grid-template-columns: 1fr; max-height: 95vh; }
+      .modal-img { border-radius: var(--radius-xl) var(--radius-xl) 0 0; padding: 30px; min-height: 250px; }
+      .modal-info { padding: 28px; }
+      .modal-specs { grid-template-columns: 1fr; }
+    }
+
+    /* ═══════════ TECHNOLOGIES ═══════════ */
+    .tech-section { background: var(--bg-alt); position: relative; overflow: hidden; }
+    .tech-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,132,12,0.06), transparent 70%); pointer-events: none; }
+    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .tech-card { padding: 40px 32px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); position: relative; transition: all .5s var(--ease); overflow: hidden; }
+    .tech-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent-3), var(--accent-2)); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
+    .tech-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 24px 60px rgba(232,132,12,0.12); }
+    .tech-card:hover::before { transform: scaleX(1); }
+    .tech-icon { width: 60px; height: 60px; border-radius: 16px; background: var(--accent-soft); border: 1px solid rgba(232,132,12,0.25); display: grid; place-items: center; margin-bottom: 24px; position: relative; }
+    .tech-icon i { color: var(--accent); font-size: 1.4rem; }
+    .tech-icon::after { content: ''; position: absolute; inset: -4px; border-radius: 20px; border: 1px dashed rgba(232,132,12,0.2); }
+    .tech-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .tech-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ═══════════ CERTIFICATIONS ═══════════ */
+    .cert-section { }
+    .cert-banner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; padding: 60px; background: linear-gradient(135deg, var(--surface), var(--surface-2)); border: 1px solid var(--line-strong); border-radius: var(--radius-xl); overflow: hidden; position: relative; }
+    .cert-banner::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, var(--accent-soft), transparent 70%); pointer-events: none; }
+    .cert-visual { text-align: center; position: relative; }
+    .cert-seal { width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; box-shadow: 0 20px 60px var(--accent-glow); position: relative; }
+    .cert-seal::before { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 2px dashed rgba(12,10,8,0.3); }
+    .cert-seal-inner { text-align: center; color: #0c0a08; }
+    .cert-seal-inner .iram { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 0.1em; line-height: 1; }
+    .cert-seal-inner .num { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; opacity: 0.8; }
+    .cert-seal-inner small { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; font-weight: 700; }
+    .cert-extra { display: flex; gap: 20px; justify-content: center; margin-top: 28px; }
+    .cert-extra-item { padding: 14px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); text-align: center; }
+    .cert-extra-item strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--accent); }
+    .cert-extra-item small { font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+    .cert-content h2 { margin-bottom: 24px; }
+    .cert-content p { color: var(--text-dim); font-size: 1rem; margin-bottom: 18px; line-height: 1.8; }
+    .cert-features { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+    .cert-feature { display: flex; align-items: center; gap: 14px; font-size: 0.92rem; }
+    .cert-feature i { color: var(--success); font-size: 0.9rem; width: 28px; height: 28px; background: rgba(46,204,113,0.1); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+
+    /* ═══════════ CONTACT ═══════════ */
+    .contact { background: var(--bg-alt); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; margin-bottom: 32px; }
+    .contact-card { padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); display: flex; gap: 16px; align-items: flex-start; transition: all .4s var(--ease); }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .contact-icon { min-width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 1rem; }
+    .contact-card h4 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; font-weight: 500; }
+    .contact-card a, .contact-card p { font-size: 0.95rem; color: var(--text); font-weight: 500; }
+    .contact-card a:hover { color: var(--accent); }
+
+    .contact-form-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 44px; }
+    .contact-form-wrap h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .contact-form-wrap .form-desc { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 28px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; font-weight: 600; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--text); font-family: inherit; font-size: 0.92rem; transition: all .3s var(--ease); outline: none; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* ═══════════ CTA BAND ═══════════ */
+    .cta-band { padding: 120px 0; background: linear-gradient(135deg, rgba(232,132,12,0.9), rgba(255,107,0,0.85)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2000&q=80') center/cover fixed; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(12,10,8,0.4) 100%); }
+    .cta-band-content { position: relative; z-index: 2; }
+    .cta-band h2.display { margin-bottom: 20px; color: #fff; }
+    .cta-band p { color: rgba(255,255,255,0.9); margin: 0 auto 36px; max-width: 600px; font-size: 1.1rem; }
+
+    /* ═══════════ FAB ═══════════ */
+    .fab { position: fixed; bottom: 28px; right: 28px; width: 62px; height: 62px; background: #25D366; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 1.8rem; z-index: 90; box-shadow: 0 14px 44px rgba(37,211,102,0.5); transition: all .3s var(--ease); animation: pulse 2.5s infinite; cursor: none; }
+    @media (hover: none), (max-width: 980px) { .fab { cursor: auto; } }
+    .fab:hover { transform: scale(1.1); animation: none; }
+    @keyframes pulse { 0% { box-shadow: 0 14px 44px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 14px 44px rgba(37,211,102,0.5), 0 0 0 24px rgba(37,211,102,0); } 100% { box-shadow: 0 14px 44px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0); } }
+
+    /* ═══════════ FOOTER ═══════════ */
+    footer { background: #060402; padding: 100px 0 28px; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
+    .footer-bg-text { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-family: 'Bebas Neue', sans-serif; font-size: clamp(6rem, 22vw, 20rem); color: transparent; -webkit-text-stroke: 1px rgba(232,132,12,0.08); line-height: 0.8; white-space: nowrap; pointer-events: none; letter-spacing: 0.05em; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; position: relative; z-index: 2; }
+    .footer-brand p { color: var(--text-dim); font-size: 0.9rem; max-width: 320px; margin: 20px 0; line-height: 1.7; }
+    .socials { display: flex; gap: 10px; }
+    .socials a { width: 44px; height: 44px; border: 1px solid var(--line); display: grid; place-items: center; border-radius: 50%; transition: all .3s var(--ease); }
+    .socials a:hover { background: var(--accent); border-color: var(--accent); color: #0c0a08; transform: translateY(-4px); }
+    .footer-col h4 { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; font-weight: 600; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col a { color: var(--text-dim); font-size: 0.88rem; transition: all .3s var(--ease); }
+    .footer-col a:hover { color: var(--accent); padding-left: 8px; }
+    .footer-bottom { padding-top: 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: var(--text-dimmer); position: relative; z-index: 2; }
+
+    /* ═══════════ REVEAL ANIMATIONS ═══════════ */
+    .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s var(--ease-out); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * { opacity: 0; transform: translateY(35px); transition: all 1s var(--ease-out); }
+    .reveal-stagger.in > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.in > *:nth-child(2) { transition-delay: .1s; }
+    .reveal-stagger.in > *:nth-child(3) { transition-delay: .2s; }
+    .reveal-stagger.in > *:nth-child(4) { transition-delay: .3s; }
+    .reveal-stagger.in > *:nth-child(5) { transition-delay: .35s; }
+    .reveal-stagger.in > *:nth-child(6) { transition-delay: .4s; }
+    .reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+
+    .word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .word span { display: inline-block; transform: translateY(110%); transition: transform 1s var(--ease-out); }
+    .reveal-words.in .word span { transform: translateY(0); }
+    .reveal-words.in .word:nth-child(1) span { transition-delay: .05s; }
+    .reveal-words.in .word:nth-child(2) span { transition-delay: .1s; }
+    .reveal-words.in .word:nth-child(3) span { transition-delay: .15s; }
+    .reveal-words.in .word:nth-child(4) span { transition-delay: .2s; }
+    .reveal-words.in .word:nth-child(5) span { transition-delay: .25s; }
+    .reveal-words.in .word:nth-child(6) span { transition-delay: .3s; }
+    .reveal-words.in .word:nth-child(7) span { transition-delay: .35s; }
+    .reveal-words.in .word:nth-child(8) span { transition-delay: .4s; }
+
+    /* ═══════════ RESPONSIVE ═══════════ */
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 60px; }
+      .catalog-grid { grid-template-columns: 1fr 1fr; }
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+      .cert-banner { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 860px) {
+      .nav-wrap { top: 12px; padding: 0 12px; }
+      .nav { padding: 8px 8px 8px 16px; }
+      .logo-text { display: none; }
+      .nav-links { display: none; position: fixed; top: 76px; left: 12px; right: 12px; flex-direction: column; gap: 4px; background: rgba(12,10,8,0.97); backdrop-filter: blur(24px); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; opacity: 0; pointer-events: none; transform: translateY(-10px); transition: all .35s var(--ease); }
+      .nav-links.open { display: flex; opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .nav-links > li { width: 100%; }
+      .nav-links > li > a { display: block; padding: 14px 18px; }
+      .nav-links .btn { width: 100%; margin-top: 6px; }
+      .burger { display: flex; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .cert-extra { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      section { padding: 80px 0; }
+      .hero { padding: 130px 0 60px; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; }
+      .hero-badges { flex-direction: column; gap: 12px; }
+      .catalog-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 28px 22px; }
+      .cert-banner { padding: 28px; }
+      .fab { width: 54px; height: 54px; bottom: 18px; right: 18px; font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span style="animation-delay:0s">G</span><span style="animation-delay:.08s">E</span><span style="animation-delay:.16s">O</span>
+        <span style="animation-delay:.35s;color:var(--accent)">C</span><span style="animation-delay:.42s;color:var(--accent)">A</span><span style="animation-delay:.49s;color:var(--accent)">L</span><span style="animation-delay:.56s;color:var(--accent)">Z</span><span style="animation-delay:.63s;color:var(--accent)">A</span><span style="animation-delay:.7s;color:var(--accent)">D</span><span style="animation-delay:.77s;color:var(--accent)">O</span><span style="animation-delay:.84s;color:var(--accent)">S</span>
+      </div>
+      <div class="loader-sub">Seguridad Industrial &nbsp;·&nbsp; Córdoba, Argentina</div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAV -->
+  <div class="nav-wrap"><nav class="nav" id="nav">
+    <a href="#" class="logo">
+      <img src="https://castoronline.com.ar/wp-content/uploads/2020/11/logo.png" alt="GEO Calzados" class="logo-mark" />
+      <span class="logo-text">GEO CALZADOS<small>SEGURIDAD INDUSTRIAL</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#empresa">Empresa</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#tecnologias">Tecnologías</a></li>
+      <li><a href="#certificaciones">Certificaciones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="https://wa.me/5493513936722?text=Hola,%20quiero%20consultar%20por%20productos%20GEO" class="btn btn-primary btn-nav" target="_blank" rel="noopener"><span><i class="fa-brands fa-whatsapp"></i> Consultar</span></a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg-img" id="heroBgImg"></div>
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow reveal">ECSE SRL · Certificación IRAM 3610</div>
+          <h1 class="display reveal-words">
+            <span class="word"><span>Protección</span></span><br>
+            <span class="word"><span class="accent">sin</span></span>
+            <span class="word"><span class="accent">compromisos,</span></span><br>
+            <span class="word"><span class="italic-serif" style="color:var(--accent-2)">diseño sin límites.</span></span>
+          </h1>
+          <p class="lead reveal">Fabricamos calzado de seguridad certificado con las más altas normas. La única empresa del rubro en Córdoba con sello IRAM 3610 y certificación "S" de la Secretaría de Comercio.</p>
+          <div class="hero-cta reveal">
+            <a href="#productos" class="btn btn-primary magnetic"><span><i class="fa-solid fa-shoe-prints"></i> Ver productos</span></a>
+            <a href="#contacto" class="btn btn-ghost magnetic"><span>Solicitar catálogo <i class="fa-solid fa-arrow-right"></i></span></a>
+          </div>
+          <div class="hero-badges reveal">
+            <div class="hero-badge">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div class="badge-text">Certificación<strong>IRAM 3610</strong></div>
+            </div>
+            <div class="hero-badge">
+              <i class="fa-solid fa-industry"></i>
+              <div class="badge-text">Fabricación<strong>100% Nacional</strong></div>
+            </div>
+            <div class="hero-badge">
+              <i class="fa-solid fa-bolt"></i>
+              <div class="badge-text">Protección<strong>Dieléctrica</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-product" data-tilt>
+            <img src="https://castoronline.com.ar/wp-content/uploads/2020/11/305-perfil-600x600.jpg" alt="GEO 305 - Zapato de seguridad" />
+            <div class="floating-tag tag-1"><i class="fa-solid fa-shield"></i> Punta de acero</div>
+            <div class="floating-tag tag-2"><i class="fa-solid fa-layer-group"></i> Suela PU-PU</div>
+            <div class="floating-tag tag-3"><i class="fa-solid fa-feather"></i> Ultra Soft</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><span>Scroll</span><span class="line"></span></div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">
+        <span>Seguridad</span><span class="sep">&#9670;</span>
+        <span class="outline">Confort</span><span class="sep">&#9670;</span>
+        <span class="accent">Tecnología</span><span class="sep">&#9670;</span>
+        <span>IRAM 3610</span><span class="sep">&#9670;</span>
+        <span class="outline">Córdoba</span><span class="sep">&#9670;</span>
+        <span class="accent">Industria Nacional</span><span class="sep">&#9670;</span>
+      </span>
+      <span class="marquee-item">
+        <span>Seguridad</span><span class="sep">&#9670;</span>
+        <span class="outline">Confort</span><span class="sep">&#9670;</span>
+        <span class="accent">Tecnología</span><span class="sep">&#9670;</span>
+        <span>IRAM 3610</span><span class="sep">&#9670;</span>
+        <span class="outline">Córdoba</span><span class="sep">&#9670;</span>
+        <span class="accent">Industria Nacional</span><span class="sep">&#9670;</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- EMPRESA -->
+  <section class="about" id="empresa">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-media reveal">
+          <div class="main-img">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80" alt="Línea de producción de calzado" />
+          </div>
+          <div class="cert-badge">
+            <strong>IRAM 3610</strong>
+            <small>Certificados</small>
+          </div>
+          <div class="mini-card">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Nacional</div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="eyebrow">Sobre la empresa</div>
+          <h2 class="display">Fabricantes de<br><span class="italic-serif" style="color:var(--accent-2)">confianza</span> y seguridad.</h2>
+          <p style="margin-top:28px;">ECSE SRL es la <strong>única empresa de calzado de seguridad de la provincia de Córdoba</strong> certificada bajo normas IRAM 3610. Desde nuestra planta en La Calera, diseñamos y fabricamos cada par con la más alta exigencia.</p>
+          <p>Nuestros calzados llevan el sello "S" otorgado por la Secretaría de Comercio, Industria y Minería de la Nación, garantizando seguridad, calidad y trazabilidad en cada producto que sale de nuestra línea.</p>
+          <p>Con tres líneas — <strong>GEO</strong>, <strong>NATURE</strong> y <strong>SPIRIT</strong> — cubrimos desde el trabajador industrial hasta el profesional que exige diseño sin resignar protección.</p>
+          <div class="stats-row">
+            <div class="stat"><strong>3</strong><small>Líneas de producto</small></div>
+            <div class="stat"><strong>6</strong><small>Tecnologías propias</small></div>
+            <div class="stat"><strong>IRAM</strong><small>Certificación 3610</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="catalog" id="productos">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="title">
+          <div class="eyebrow">Catálogo completo</div>
+          <h2 class="display">18 modelos, tres<br><span class="italic-serif" style="color:var(--accent-2)">líneas</span>, una misión.</h2>
+          <p class="lead" style="margin-top:16px;">Explorá nuestro catálogo completo. Cada modelo incorpora tecnologías exclusivas y está certificado bajo norma IRAM 3610.</p>
+        </div>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="catalog-filters reveal">
+        <button class="filter-btn active" data-filter="all">Todos<span class="count">18</span></button>
+        <button class="filter-btn" data-filter="geo">Línea GEO<span class="count">9</span></button>
+        <button class="filter-btn" data-filter="nature">Línea Nature<span class="count">4</span></button>
+        <button class="filter-btn" data-filter="spirit">Línea Spirit<span class="count">5</span></button>
+      </div>
+
+      <!-- ═══ LÍNEA GEO ═══ -->
+      <div class="catalog-line-header reveal" data-line="geo">
+        <img src="https://castoronline.com.ar/wp-content/uploads/2020/12/geo-logo.png" alt="GEO" />
+        <span class="catalog-line-tag" style="background:var(--accent);color:#0c0a08;">Premium</span>
+        <p>9 modelos · Protección, comodidad y diseño</p>
+      </div>
+      <div class="catalog-grid reveal-stagger" data-line="geo">
+        <!-- GEO 305 -->
+        <div class="product-card" data-line="geo" data-model="305" data-name="GEO 305" data-type="Zapato · Línea Carga Premium" data-desc="Confort ilimitado y máxima protección. Zapato con capellada de cuero 100% natural, diseño ergonómico y tecnología de absorción de impactos." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Steel Insole,Ultra Density" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/305-perfil-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/305-perfil-600x600.jpg" alt="GEO 305" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 305</div>
+            <div class="card-type">Zapato · Cuero natural</div>
+            <p class="card-desc">Confort ilimitado y máxima protección. Cuero 100% natural con tecnología de absorción de impactos.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 307 -->
+        <div class="product-card" data-line="geo" data-model="307" data-name="GEO 307" data-type="Zapato · Línea Carga Premium" data-desc="Versatilidad y protección en cada paso. Capellada de cuerina de alta resistencia con tecnología premium GEO." data-specs="Capellada de cuerina,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Steel Insole,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/30641n-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/30641n-trescuartos-600x600.jpg" alt="GEO 307" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 307</div>
+            <div class="card-type">Zapato · Cuerina</div>
+            <p class="card-desc">Versatilidad y protección. Capellada de cuerina de alta resistencia con acabado moderno y duradero.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 401 -->
+        <div class="product-card" data-line="geo" data-model="401" data-name="GEO 401" data-type="Botín Fundidor · Línea Carga Premium" data-desc="Botín fundidor con capellada reforzada con elásticos para mayor adaptabilidad. Protección superior en ambientes de alta exigencia térmica." data-specs="Cuero 100% natural,Capellada con elásticos,Textil reforzado c/elásticos,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Density,Steel Insole,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/401-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/401-trescuartos-600x600.jpg" alt="GEO 401" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 401</div>
+            <div class="card-type">Botín Fundidor</div>
+            <p class="card-desc">Cuero 100% natural con diseño de vanguardia. Capellada reforzada con elásticos para ambientes de alta exigencia.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-fire"></i> Fundición</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 505 -->
+        <div class="product-card" data-line="geo" data-model="505" data-name="GEO 505" data-type="Botín · Línea Carga Premium" data-desc="Máxima protección, confort sin límites. Botín de seguridad con capellada de cuero natural y base acolchada para uso prolongado." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Ultra Density,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/505-perfil-marron-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/505-perfil-marron-600x600.jpg" alt="GEO 505" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 505</div>
+            <div class="card-type">Botín · Cuero natural</div>
+            <p class="card-desc">Máxima protección y confort sin límites. Capellada de cuero natural con base acolchada para jornadas extensas.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 507 -->
+        <div class="product-card" data-line="geo" data-model="507" data-name="GEO 507" data-type="Botín · Línea Carga Premium" data-desc="Botín premium con cuero natural de alta resistencia. Diseño ergonómico y sistema de protección integral." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Steel Insole,Ultra Density" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/50641n-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/50641n-trescuartos-600x600.jpg" alt="GEO 507" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 507</div>
+            <div class="card-type">Botín · Cuero natural</div>
+            <p class="card-desc">Botín premium con cuero natural de alta resistencia y sistema de protección integral para uso industrial.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 601 -->
+        <div class="product-card" data-line="geo" data-model="601" data-name="GEO 601" data-type="Botín Tipo Cater · Línea Carga Premium" data-desc="Botín tipo cater de seguridad. Cuero 100% natural con diseño de vanguardia. Ideal para trabajos en terrenos irregulares." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Density,Steel Insole,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/60141n-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/60141n-trescuartos-600x600.jpg" alt="GEO 601" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 601</div>
+            <div class="card-type">Botín Tipo Cater</div>
+            <p class="card-desc">Botín tipo cater con cuero 100% natural. Diseño de vanguardia ideal para terrenos irregulares y exigentes.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-mountain"></i> Todo terreno</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 71 -->
+        <div class="product-card" data-line="geo" data-model="71" data-name="GEO 71" data-type="Bota Petrolera · Línea Carga Premium" data-desc="Bota petrolera de máxima protección. Cuero 100% natural con caña alta para protección integral en industrias pesadas." data-specs="Cuero 100% natural,Caña alta reforzada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Density,Steel Insole,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/91negro-trescuartos-h-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/91negro-trescuartos-h-600x600.jpg" alt="GEO 71" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 71</div>
+            <div class="card-type">Bota Petrolera</div>
+            <p class="card-desc">Bota petrolera de máxima protección con caña alta reforzada. Ideal para industrias pesadas y ambientes extremos.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-oil-well"></i> Petrolera</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 81 -->
+        <div class="product-card" data-line="geo" data-model="81" data-name="GEO 81" data-type="Zapatilla · Línea Carga Premium" data-desc="Zapatilla de seguridad premium. Cuero 100% natural combinando ligereza con la protección completa de la línea GEO." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Steel Insole,Ultra Density" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/8041m-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/8041m-trescuartos-600x600.jpg" alt="GEO 81" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 81</div>
+            <div class="card-type">Zapatilla de seguridad</div>
+            <p class="card-desc">Zapatilla de seguridad premium. Combina la ligereza de una zapatilla con la protección completa GEO.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-feather"></i> Liviana</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- GEO 91 -->
+        <div class="product-card" data-line="geo" data-model="91" data-name="GEO 91" data-type="Borceguí · Línea Carga Premium" data-desc="Borceguí de seguridad premium. Cuero 100% natural con cordones reforzados y protección total para ambientes industriales." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Ultra Density,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/9141n-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge">Premium</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/9141n-trescuartos-600x600.jpg" alt="GEO 91" /></div>
+          <div class="product-card-body">
+            <div class="card-model">GEO 91</div>
+            <div class="card-type">Borceguí</div>
+            <p class="card-desc">Borceguí de seguridad premium. Cuero 100% natural con cordones reforzados y protección total industrial.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+      </div>
+
+      <!-- ═══ LÍNEA NATURE ═══ -->
+      <div class="catalog-line-header reveal" data-line="nature">
+        <img src="https://castoronline.com.ar/wp-content/uploads/2020/12/nature-logo.png" alt="Nature" />
+        <span class="catalog-line-tag" style="background:var(--steel);color:#0c0a08;">Elite</span>
+        <p>4 modelos · Ultralivianos, urbanos y seguros</p>
+      </div>
+      <div class="catalog-grid reveal-stagger" data-line="nature">
+        <!-- NATURE 01 -->
+        <div class="product-card" data-line="nature" data-model="01" data-name="NATURE 01" data-type="Botín Urbano Ultraliviano" data-desc="Botín urbano ultraliviano de seguridad. Cuero 100% natural con diseño y tecnología de vanguardia. Confort sin límites y máxima protección." data-specs="Cuero 100% natural,Diseño ultraliviano,Construcción urbana,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Ultra Density" data-sizes="37-44" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/nature-01-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--steel)">Elite</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/nature-01-trescuartos-600x600.jpg" alt="NATURE 01" /></div>
+          <div class="product-card-body">
+            <div class="card-model">NATURE 01</div>
+            <div class="card-type">Botín urbano ultraliviano</div>
+            <p class="card-desc">Botín urbano ultraliviano. Cuero 100% natural con diseño de vanguardia. Confort sin límites y máxima protección.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-feather"></i> Ultraliviano</span><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-city"></i> Urbano</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 44</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- NATURE 02 -->
+        <div class="product-card" data-line="nature" data-model="02" data-name="NATURE 02" data-type="Zapatilla Urbana Ultraliviana" data-desc="Zapatilla urbana ultraliviana de seguridad. Cuero 100% natural con diseño contemporáneo. Confort sin límites y máxima protección." data-specs="Cuero 100% natural,Diseño ultraliviano,Construcción urbana,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Ultra Density" data-sizes="37-44" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/IMG_0599-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--steel)">Elite</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/IMG_0599-600x600.jpg" alt="NATURE 02" /></div>
+          <div class="product-card-body">
+            <div class="card-model">NATURE 02</div>
+            <div class="card-type">Zapatilla urbana ultraliviana</div>
+            <p class="card-desc">Zapatilla urbana ultraliviana. Cuero 100% natural con diseño contemporáneo y protección certificada.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-feather"></i> Ultraliviana</span><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-city"></i> Urbana</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 44</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- NATURE 03 -->
+        <div class="product-card" data-line="nature" data-model="03" data-name="NATURE 03" data-type="Zapatilla Urbana Ultraliviana" data-desc="Zapatilla urbana ultraliviana de seguridad. Cuero 100% natural, diseño y tecnología de vanguardia. Confort sin límites y máxima protección." data-specs="Cuero 100% natural,Diseño ultraliviano,Construcción urbana,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Ultra Density" data-sizes="37-44" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/nature-03-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--steel)">Elite</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/nature-03-trescuartos-600x600.jpg" alt="NATURE 03" /></div>
+          <div class="product-card-body">
+            <div class="card-model">NATURE 03</div>
+            <div class="card-type">Zapatilla urbana ultraliviana</div>
+            <p class="card-desc">Zapatilla urbana ultraliviana. Cuero 100% natural con diseño de vanguardia y tecnología de confort avanzada.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-feather"></i> Ultraliviana</span><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-city"></i> Urbana</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 44</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- NATURE 220 -->
+        <div class="product-card" data-line="nature" data-model="220" data-name="NATURE 220" data-type="Zapatilla Urbana Ultraliviana" data-desc="Zapatilla urbana ultraliviana de seguridad. Cuero 100% natural, diseño y tecnología de vanguardia. Lo último en confort y protección." data-specs="Cuero 100% natural,Diseño ultraliviano,Construcción urbana,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Ultra Density" data-sizes="37-44" data-img="https://castoronline.com.ar/wp-content/uploads/2025/08/nature-220-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--steel)">Elite · Nuevo</span><img src="https://castoronline.com.ar/wp-content/uploads/2025/08/nature-220-trescuartos-600x600.jpg" alt="NATURE 220" /></div>
+          <div class="product-card-body">
+            <div class="card-model">NATURE 220</div>
+            <div class="card-type">Zapatilla urbana ultraliviana</div>
+            <p class="card-desc">Lo último en confort y protección. Zapatilla urbana ultraliviana con cuero 100% natural y tecnología de vanguardia.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-feather"></i> Ultraliviana</span><span class="card-spec"><i class="fa-solid fa-star"></i> Nuevo</span><span class="card-spec"><i class="fa-solid fa-city"></i> Urbana</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 44</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+      </div>
+
+      <!-- ═══ LÍNEA SPIRIT ═══ -->
+      <div class="catalog-line-header reveal" data-line="spirit">
+        <img src="https://castoronline.com.ar/wp-content/uploads/2020/12/spirit-logo.png" alt="Spirit" />
+        <span class="catalog-line-tag" style="background:var(--accent-3);color:#0c0a08;">Worker</span>
+        <p>5 modelos · Resistencia y rendimiento diario</p>
+      </div>
+      <div class="catalog-grid reveal-stagger" data-line="spirit">
+        <!-- FENIX S21 -->
+        <div class="product-card" data-line="spirit" data-model="S21" data-name="FENIX S21" data-type="Zapatilla de Seguridad y Confort" data-desc="Zapatilla de seguridad y confort. Cuero 100% natural con diseño y tecnología de vanguardia para el trabajador exigente." data-specs="Cuero 100% natural,Diseño ergonómico,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Steel Insole" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2022/06/conforce-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--accent-3)">Worker</span><img src="https://castoronline.com.ar/wp-content/uploads/2022/06/conforce-trescuartos-600x600.jpg" alt="FENIX S21" /></div>
+          <div class="product-card-body">
+            <div class="card-model">FENIX S21</div>
+            <div class="card-type">Zapatilla de seguridad</div>
+            <p class="card-desc">Zapatilla de seguridad y confort. Cuero 100% natural con tecnología de vanguardia para el trabajador exigente.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- SPIRIT S-11 -->
+        <div class="product-card" data-line="spirit" data-model="S-11" data-name="SPIRIT S-11" data-type="Botín · Línea Carga Worker" data-desc="Botín línea Carga Worker de seguridad. Cuero 100% natural con diseño robusto y tecnología de vanguardia." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Density,Steel Insole" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/s1141-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--accent-3)">Worker</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/s1141-trescuartos-600x600.jpg" alt="SPIRIT S-11" /></div>
+          <div class="product-card-body">
+            <div class="card-model">SPIRIT S-11</div>
+            <div class="card-type">Botín Worker</div>
+            <p class="card-desc">Botín Worker de seguridad con cuero 100% natural. Diseño robusto y resistente para el uso diario intenso.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- SPIRIT S-33 -->
+        <div class="product-card" data-line="spirit" data-model="S-33" data-name="SPIRIT S-33" data-type="Zapato · Línea Carga Worker" data-desc="Zapato línea Carga Worker de seguridad. Cuero 100% natural con diseño y tecnología de vanguardia para el trabajador diario." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Density,Steel Insole" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/s3241-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--accent-3)">Worker</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/s3241-trescuartos-600x600.jpg" alt="SPIRIT S-33" /></div>
+          <div class="product-card-body">
+            <div class="card-model">SPIRIT S-33</div>
+            <div class="card-type">Zapato Worker</div>
+            <p class="card-desc">Zapato Worker de seguridad. Cuero 100% natural con diseño resistente para el rendimiento diario exigente.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- SPIRIT S-40 -->
+        <div class="product-card" data-line="spirit" data-model="S-40" data-name="SPIRIT S-40" data-type="Mocasín · Línea Carga Worker" data-desc="Mocasín línea Carga Worker de seguridad. Cuero 100% natural con calce fácil y tecnología de protección completa." data-specs="Cuero 100% natural,Calce tipo mocasín,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Soft,Steel Insole" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/s40n-trescuartos-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--accent-3)">Worker</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/s40n-trescuartos-600x600.jpg" alt="SPIRIT S-40" /></div>
+          <div class="product-card-body">
+            <div class="card-model">SPIRIT S-40</div>
+            <div class="card-type">Mocasín Worker</div>
+            <p class="card-desc">Mocasín Worker de seguridad con calce fácil. Cuero 100% natural con protección completa sin cordones.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-shoe-prints"></i> Mocasín</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+        <!-- SPIRIT S-53 -->
+        <div class="product-card" data-line="spirit" data-model="S-53" data-name="SPIRIT S-53" data-type="Botín · Línea Carga Worker" data-desc="Botín línea Carga Worker de seguridad. Cuero 100% natural con diseño resistente y protección certificada para jornadas intensas." data-specs="Cuero 100% natural,Base textil acolchada,Textil tejido reforzado,Suela PU-PU,Textil de strobel,Plantilla de acero,Recubrimiento dieléctrico,Puntera de acero" data-techs="Covercell,Ultra Density,Steel Insole,Internal Lining" data-sizes="37-47" data-img="https://castoronline.com.ar/wp-content/uploads/2020/11/spirit-s53-trescuartos-1-600x600.jpg">
+          <div class="product-card-img"><span class="card-badge" style="background:var(--accent-3)">Worker</span><img src="https://castoronline.com.ar/wp-content/uploads/2020/11/spirit-s53-trescuartos-1-600x600.jpg" alt="SPIRIT S-53" /></div>
+          <div class="product-card-body">
+            <div class="card-model">SPIRIT S-53</div>
+            <div class="card-type">Botín Worker</div>
+            <p class="card-desc">Botín Worker de seguridad con cuero 100% natural. Diseño resistente y protección certificada para jornadas intensas.</p>
+            <div class="card-specs"><span class="card-spec"><i class="fa-solid fa-shield-halved"></i> Punta acero</span><span class="card-spec"><i class="fa-solid fa-bolt"></i> Dieléctrico</span><span class="card-spec"><i class="fa-solid fa-layer-group"></i> PU-PU</span></div>
+            <div class="card-sizes">Talles: <strong>37 — 47</strong></div>
+          </div>
+          <div class="product-card-cta"><a href="#" class="open-modal">Ver especificaciones</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT MODAL -->
+  <div class="product-modal" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-img"><img id="modalImg" src="" alt="" /></div>
+      <div class="modal-info">
+        <div class="product-model" id="modalModel"></div>
+        <div class="product-name" id="modalName"></div>
+        <div class="product-type" id="modalType"></div>
+        <p class="product-desc" id="modalDesc"></p>
+        <div class="modal-specs" id="modalSpecs"></div>
+        <div class="modal-techs" id="modalTechs"></div>
+        <div style="font-size:0.78rem;color:var(--text-dim);margin-bottom:20px;" id="modalSizes"></div>
+        <div class="modal-cta">
+          <a href="https://wa.me/5493513936722?text=Hola,%20quiero%20consultar%20por%20el%20modelo%20" class="btn btn-primary" id="modalWa" target="_blank"><span><i class="fa-brands fa-whatsapp"></i> Consultar</span></a>
+          <a href="mailto:castorseguridad@hotmail.com" class="btn btn-ghost"><span><i class="fa-solid fa-envelope"></i> Email</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECNOLOGÍAS -->
+  <section class="tech-section" id="tecnologias">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="title">
+          <div class="eyebrow">Tecnologías exclusivas</div>
+          <h2 class="display">Innovación que<br><span class="italic-serif" style="color:var(--accent-2)">protege</span>.</h2>
+          <p class="lead" style="margin-top:16px;">Cada par integra un sistema de tecnologías desarrolladas para maximizar seguridad, confort y durabilidad.</p>
+        </div>
+      </div>
+      <div class="tech-grid reveal-stagger">
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Punta de Acero</h3>
+          <p>Puntera de acero reforzada que protege los dedos contra impactos y aplastamiento. Cumple con los estándares de resistencia exigidos por la norma IRAM 3610.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Covercell</h3>
+          <p>Sistema de recubrimiento multicapa que aumenta la resistencia a la abrasión y extiende la vida útil del calzado en condiciones industriales exigentes.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Ultra Soft</h3>
+          <p>Tecnología de amortiguación avanzada que absorbe el impacto en cada paso, reduciendo la fatiga durante jornadas laborales prolongadas.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-bars"></i></div>
+          <h3>Steel Insole</h3>
+          <p>Plantilla de acero integrada que protege la planta del pie contra perforaciones por objetos punzantes, clavos u otros elementos cortantes del suelo.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-cube"></i></div>
+          <h3>Ultra Density</h3>
+          <p>Suela de doble densidad PU-PU que combina ligereza con máxima resistencia al desgaste, tracción superior y aislamiento contra superficies extremas.</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon"><i class="fa-solid fa-temperature-low"></i></div>
+          <h3>Internal Lining</h3>
+          <p>Forro interior técnico que regula la temperatura y la humedad del pie, manteniendo un microclima confortable durante toda la jornada laboral.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICACIONES -->
+  <section class="cert-section" id="certificaciones">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="title">
+          <div class="eyebrow">Certificaciones</div>
+          <h2 class="display">Calidad<br><span class="italic-serif" style="color:var(--accent-2)">garantizada</span>.</h2>
+        </div>
+      </div>
+      <div class="cert-banner reveal">
+        <div class="cert-visual">
+          <div class="cert-seal">
+            <div class="cert-seal-inner">
+              <div class="iram">IRAM</div>
+              <div class="num">3610</div>
+              <small>Certificado</small>
+            </div>
+          </div>
+          <div class="cert-extra">
+            <div class="cert-extra-item">
+              <strong>Sello "S"</strong>
+              <small>Sec. de Comercio</small>
+            </div>
+            <div class="cert-extra-item">
+              <strong>ECSE SRL</strong>
+              <small>Razón social</small>
+            </div>
+          </div>
+        </div>
+        <div class="cert-content">
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3.5rem)">La única empresa de calzado de seguridad de Córdoba certificada IRAM.</h2>
+          <p>Nuestros calzados cuentan con la certificación IRAM 3610, el estándar más exigente para calzado de seguridad en Argentina. Esto garantiza que cada par supera rigurosas pruebas de resistencia, protección y durabilidad.</p>
+          <p>Además, portamos el sello "S" otorgado por la Secretaría de Comercio, Industria y Minería de la Nación, que certifica la seguridad del producto para el consumidor final.</p>
+          <div class="cert-features">
+            <div class="cert-feature"><i class="fa-solid fa-check"></i> Resistencia a impactos certificada</div>
+            <div class="cert-feature"><i class="fa-solid fa-check"></i> Protección contra perforación</div>
+            <div class="cert-feature"><i class="fa-solid fa-check"></i> Aislamiento dieléctrico verificado</div>
+            <div class="cert-feature"><i class="fa-solid fa-check"></i> Resistencia al deslizamiento</div>
+            <div class="cert-feature"><i class="fa-solid fa-check"></i> Trazabilidad completa del producto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container cta-band-content reveal">
+      <div class="eyebrow" style="color:rgba(255,255,255,0.9)">Necesitás calzado de seguridad?</div>
+      <h2 class="display">Consultá precios<br>y disponibilidad.</h2>
+      <p>Atendemos distribuidores, empresas e industrias de todo el país. Escribinos y te asesoramos.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://wa.me/5493513936722?text=Hola,%20quiero%20consultar%20por%20productos%20GEO" class="btn btn-whatsapp magnetic" target="_blank" rel="noopener"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp</span></a>
+        <a href="mailto:castorseguridad@hotmail.com" class="btn btn-ghost magnetic" style="border-color:rgba(255,255,255,0.3);color:#fff;"><span><i class="fa-solid fa-envelope"></i> Email</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="eyebrow">Contacto</div>
+          <h2 class="display">Hablemos de tu<br><span class="italic-serif" style="color:var(--accent-2)">proyecto</span>.</h2>
+          <p class="lead" style="margin-top:18px;">Ya sea para una cotización, asesoramiento técnico o pedidos especiales, estamos para ayudarte.</p>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div><h4>Dirección</h4><p>Av. Jujuy 185<br>La Calera, Córdoba</p></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div><h4>Teléfono</h4><a href="tel:+5493513936722">+54 351 393-6722</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div><h4>Email</h4><a href="mailto:castorseguridad@hotmail.com">castorseguridad@hotmail.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+              <div><h4>Instagram</h4><a href="https://www.instagram.com/calzadosgeo" target="_blank">@calzadosgeo</a></div>
+            </div>
+          </div>
+          <a href="https://wa.me/5493513936722?text=Hola,%20quiero%20consultar%20por%20productos%20GEO" class="btn btn-primary magnetic" target="_blank" rel="noopener"><span><i class="fa-brands fa-whatsapp"></i> Escribinos por WhatsApp</span></a>
+        </div>
+        <div class="reveal">
+          <div class="contact-form-wrap">
+            <h3>Solicitar cotización</h3>
+            <p class="form-desc">Completá el formulario y te respondemos a la brevedad.</p>
+            <form onsubmit="event.preventDefault(); alert('Gracias por tu consulta. Te responderemos a la brevedad.');">
+              <div class="form-row">
+                <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
+                <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nombre de empresa" /></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Email</label><input type="email" placeholder="email@empresa.com" required /></div>
+                <div class="form-group"><label>Teléfono</label><input type="tel" placeholder="+54 ..." /></div>
+              </div>
+              <div class="form-group">
+                <label>Producto de interés</label>
+                <select>
+                  <option value="">Seleccionar producto...</option>
+                  <optgroup label="Línea GEO — Premium">
+                    <option>GEO 305 — Zapato</option>
+                    <option>GEO 307 — Zapato</option>
+                    <option>GEO 401 — Botín Fundidor</option>
+                    <option>GEO 505 — Botín</option>
+                    <option>GEO 507 — Botín</option>
+                    <option>GEO 601 — Botín Cater</option>
+                    <option>GEO 71 — Bota Petrolera</option>
+                    <option>GEO 81 — Zapatilla</option>
+                    <option>GEO 91 — Borceguí</option>
+                  </optgroup>
+                  <optgroup label="Línea Nature — Elite">
+                    <option>NATURE 01 — Botín Urbano</option>
+                    <option>NATURE 02 — Zapatilla Urbana</option>
+                    <option>NATURE 03 — Zapatilla Urbana</option>
+                    <option>NATURE 220 — Zapatilla Urbana</option>
+                  </optgroup>
+                  <optgroup label="Línea Spirit — Worker">
+                    <option>FENIX S21 — Zapatilla</option>
+                    <option>SPIRIT S-11 — Botín</option>
+                    <option>SPIRIT S-33 — Zapato</option>
+                    <option>SPIRIT S-40 — Mocasín</option>
+                    <option>SPIRIT S-53 — Botín</option>
+                  </optgroup>
+                  <option>Catálogo completo</option>
+                </select>
+              </div>
+              <div class="form-group"><label>Mensaje</label><textarea placeholder="Contanos qué necesitás: cantidad, talles, plazos..."></textarea></div>
+              <button type="submit" class="btn btn-primary" style="width:100%;"><span><i class="fa-solid fa-paper-plane"></i> Enviar consulta</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bg-text">GEO</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="https://castoronline.com.ar/wp-content/uploads/2020/11/logo.png" alt="GEO Calzados" class="logo-mark" />
+            <span class="logo-text">GEO CALZADOS<small>ECSE SRL</small></span>
+          </a>
+          <p>Fabricantes de calzado de seguridad certificado IRAM 3610. Protección, tecnología y diseño desde La Calera, Córdoba, Argentina.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/CastorSeguridad" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/calzadosgeo" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/5493513936722" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#empresa">Empresa</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#tecnologias">Tecnologías</a></li>
+            <li><a href="#certificaciones">Certificaciones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#productos">Línea GEO (9)</a></li>
+            <li><a href="#productos">Línea Nature (4)</a></li>
+            <li><a href="#productos">Línea Spirit (5)</a></li>
+            <li><a href="#productos">Ver catálogo completo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>Av. Jujuy 185, La Calera</li>
+            <li>Córdoba, Argentina</li>
+            <li><a href="tel:+5493513936722">+54 351 393-6722</a></li>
+            <li><a href="mailto:castorseguridad@hotmail.com">castorseguridad@hotmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; <span id="year"></span> GEO Calzados · ECSE SRL. Todos los derechos reservados.</div>
+        <div>Fabricado con orgullo en La Calera, Córdoba</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAB WHATSAPP -->
+  <a href="https://wa.me/5493513936722?text=Hola,%20quiero%20consultar%20por%20productos%20GEO" class="fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script>
+    // Loader
+    window.addEventListener('load', () => { setTimeout(() => document.getElementById('loader').classList.add('done'), 1800); });
+
+    // Custom cursor
+    const cursor = document.getElementById('cursor'), cursorDot = document.getElementById('cursorDot');
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2, cx = mx, cy = my;
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursorDot.style.left = mx + 'px'; cursorDot.style.top = my + 'px'; });
+    function animateCursor() { cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12; cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px'; requestAnimationFrame(animateCursor); }
+    animateCursor();
+    document.querySelectorAll('a, button, .product-card, .tech-card, .contact-card, .hero-badge, .filter-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); if (el.dataset.cursor === 'view') cursor.classList.add('view'); });
+      el.addEventListener('mouseleave', () => { cursor.classList.remove('hover', 'view'); });
+    });
+
+    // Scroll progress
+    const sp = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => { const h = document.documentElement; sp.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%'; });
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
+
+    // Burger menu
+    const burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => { burger.classList.toggle('open'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); navLinks.classList.remove('open'); }));
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-stagger, .reveal-words').forEach(el => io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Magnetic buttons
+    document.querySelectorAll('.magnetic').forEach(el => {
+      el.addEventListener('mousemove', (e) => { const rect = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - rect.left - rect.width / 2) * 0.2}px, ${(e.clientY - rect.top - rect.height / 2) * 0.3}px)`; });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+
+    // Tilt on hero product
+    document.querySelectorAll('[data-tilt]').forEach(el => {
+      el.addEventListener('mousemove', (e) => { const rect = el.getBoundingClientRect(); const x = (e.clientX - rect.left) / rect.width - 0.5, y = (e.clientY - rect.top) / rect.height - 0.5; el.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`; });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+
+    // Parallax hero bg
+    const heroBgImg = document.getElementById('heroBgImg');
+    window.addEventListener('scroll', () => { if (heroBgImg) heroBgImg.style.transform = `translateY(${window.scrollY * 0.25}px) scale(1.08)`; });
+
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // ═══ CATALOG FILTERS ═══
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const allCards = document.querySelectorAll('.product-card');
+    const lineHeaders = document.querySelectorAll('.catalog-line-header');
+    const lineGrids = document.querySelectorAll('.catalog-grid[data-line]');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        lineHeaders.forEach(h => { h.style.display = (filter === 'all' || h.dataset.line === filter) ? '' : 'none'; });
+        lineGrids.forEach(g => { g.style.display = (filter === 'all' || g.dataset.line === filter) ? '' : 'none'; });
+        allCards.forEach(card => {
+          if (filter === 'all' || card.dataset.line === filter) {
+            card.style.display = '';
+            card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+            setTimeout(() => { card.style.transition = 'all .5s var(--ease-out)'; card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+          } else { card.style.display = 'none'; }
+        });
+      });
+    });
+
+    // ═══ PRODUCT MODAL ═══
+    const modal = document.getElementById('productModal');
+    const modalClose = document.getElementById('modalClose');
+    const specIcons = { 'Cuero 100% natural': 'fa-cow', 'Capellada de cuerina': 'fa-swatchbook', 'Base textil acolchada': 'fa-mattress-pillow', 'Textil tejido reforzado': 'fa-grip-lines', 'Suela PU-PU': 'fa-layer-group', 'Textil de strobel': 'fa-shoe-prints', 'Plantilla de acero': 'fa-shield-halved', 'Recubrimiento dieléctrico': 'fa-bolt', 'Puntera de acero': 'fa-crosshairs', 'Capellada con elásticos': 'fa-up-down-left-right', 'Textil reforzado c/elásticos': 'fa-grip-lines', 'Caña alta reforzada': 'fa-arrows-up-down', 'Diseño ultraliviano': 'fa-feather', 'Construcción urbana': 'fa-city', 'Calce tipo mocasín': 'fa-shoe-prints', 'Diseño ergonómico': 'fa-hand' };
+
+    document.querySelectorAll('.open-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const card = btn.closest('.product-card');
+        const d = card.dataset;
+        document.getElementById('modalImg').src = d.img;
+        document.getElementById('modalImg').alt = d.name;
+        document.getElementById('modalModel').textContent = d.model;
+        document.getElementById('modalName').textContent = d.name;
+        document.getElementById('modalType').textContent = d.type;
+        document.getElementById('modalDesc').textContent = d.desc;
+        document.getElementById('modalSizes').innerHTML = 'Talles disponibles: <strong>' + d.sizes + '</strong>';
+        document.getElementById('modalWa').href = 'https://wa.me/5493513936722?text=Hola,%20quiero%20consultar%20por%20el%20modelo%20' + encodeURIComponent(d.name);
+        const specsEl = document.getElementById('modalSpecs');
+        specsEl.innerHTML = d.specs.split(',').map(s => { const icon = specIcons[s.trim()] || 'fa-check'; return '<div class="modal-spec"><i class="fa-solid ' + icon + '"></i> ' + s.trim() + '</div>'; }).join('');
+        const techsEl = document.getElementById('modalTechs');
+        techsEl.innerHTML = d.techs.split(',').map(t => '<span class="modal-tech">' + t.trim() + '</span>').join('');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+  </script>
+</body>
+</html>
