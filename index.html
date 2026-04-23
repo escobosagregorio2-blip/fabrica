@@ -150,7 +150,7 @@
     .hero-bg { position: absolute; inset: 0; z-index: -1; }
     .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(12,10,8,0.97) 0%, rgba(12,10,8,0.6) 40%, rgba(12,10,8,0.3) 70%, rgba(12,10,8,0.7) 100%); z-index: 1; }
     .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(12,10,8,0.9) 100%); z-index: 2; }
-    .hero-bg-img { position: absolute; inset: -8%; background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=80') center/cover; z-index: 0; will-change: transform; filter: saturate(0.4) brightness(0.7); }
+    .hero-bg-img { position: absolute; inset: -8%; background: url('img/planta-exterior-2.jpg') center/cover; z-index: 0; will-change: transform; filter: saturate(0.4) brightness(0.7); }
 
     .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center; width: 100%; position: relative; z-index: 3; }
     .hero-content { max-width: 820px; }
@@ -542,7 +542,7 @@
       <div class="about-grid">
         <div class="about-media reveal">
           <div class="main-img">
-            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80" alt="Línea de producción de calzado" />
+            <img src="img/planta-maquina-1.jpg" alt="Línea de producción GEO Calzados" />
           </div>
           <div class="cert-badge">
             <strong>IRAM 3610</strong>
@@ -564,6 +564,33 @@
             <div class="stat"><strong>6</strong><small>Tecnologías propias</small></div>
             <div class="stat"><strong>IRAM</strong><small>Certificación 3610</small></div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONOCÉ NUESTRA PLANTA -->
+  <section style="padding:100px 0;background:var(--bg-alt);" id="planta">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="title">
+          <div class="eyebrow">Nuestra planta</div>
+          <h2 class="display">Conocé dónde<br><span class="italic-serif" style="color:var(--accent-2)">fabricamos</span>.</h2>
+          <p class="lead" style="margin-top:16px;">Desde nuestra planta en La Calera, Córdoba, diseñamos y producimos cada par con tecnología propia y materiales argentinos de primera calidad.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="reveal">
+        <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(240,220,190,0.08);aspect-ratio:16/10;">
+          <img src="img/planta-exterior-1.jpg" alt="Exterior planta GEO Calzados" style="width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.22,.61,.36,1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(240,220,190,0.08);aspect-ratio:16/10;">
+          <img src="img/planta-exterior-2.jpg" alt="Fachada planta GEO Calzados" style="width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.22,.61,.36,1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(240,220,190,0.08);aspect-ratio:16/10;">
+          <img src="img/planta-maquina-1.jpg" alt="Máquina inyectora de poliuretano GEO" style="width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.22,.61,.36,1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+        </div>
+        <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(240,220,190,0.08);aspect-ratio:16/10;">
+          <img src="img/planta-maquina-2.jpg" alt="Línea de producción GEO Calzados" style="width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.22,.61,.36,1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
         </div>
       </div>
     </div>
